@@ -38,8 +38,8 @@ Extra features I added:
 
 ### Links
 
-- Solution URL: [Add your GitHub repo link here]
-- Live Site URL: [Add your deployed site link here]
+- Solution URL: [github.com/juliochrist/hotel-booking-confirmation-page-main](https://github.com/juliochrist/hotel-booking-confirmation-page-main)
+- Live Site URL: [juliochrist.github.io/hotel-booking-confirmation-page-main](https://juliochrist.github.io/hotel-booking-confirmation-page-main/)
 
 ## My process
 
@@ -92,5 +92,4 @@ await navigator.clipboard.writeText(value);
 
 ## Author
 
-- Frontend Mentor - [Add your Frontend Mentor profile link here]
-- GitHub - [Add your GitHub profile link here]
+- GitHub - [@juliochrist](https://github.com/juliochrist)
