@@ -1,0 +1,896 @@
+/* ============================
+   FONT FACES
+   Sesuaikan path & nama file sama yang ada di /assets/fonts
+   ============================ */
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces/Fraunces-Italic-VariableFont_SOFT,WONK,opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("assets/fonts/dm-sans/DMSans-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("assets/fonts/dm-mono/DMMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Mono";
+  src: url("assets/fonts/dm-mono/DMMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================
+   CSS RESET
+   ============================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ============================
+   CSS VARIABLES (Design Tokens)
+   ============================ */
+:root {
+  /* Colors — from style-guide.md */
+  --neutral-900: hsl(33, 15%, 15%);
+  --neutral-800: hsl(33, 22%, 20%);
+  --neutral-700: hsl(32, 20%, 29%);
+  --neutral-600: hsl(33, 17%, 41%);
+  --neutral-400: hsl(36, 22%, 86%);
+  --neutral-200: hsl(30, 24%, 93%);
+  --neutral-100: hsl(35, 60%, 96%);
+  --neutral-50: hsl(40, 60%, 98%);
+  --neutral-0: hsl(0, 0%, 100%);
+
+  --sun-500: hsl(42, 83%, 58%);
+  --sun-300: hsl(44, 84%, 75%);
+  --sun-200: hsl(45, 100%, 74%);
+  --sun-50: hsl(41, 100%, 93%);
+
+  --terracotta-700: hsl(15, 69%, 37%);
+  --terracotta-600: hsl(15, 74%, 41%);
+  --terracotta-500: hsl(18, 62%, 47%);
+  --terracotta-400: hsl(22, 72%, 56%);
+
+  --blue-500: hsl(230, 49%, 56%);
+  --rose-500: hsl(340, 48%, 52%);
+
+  /* Semantic aliases — use these in components */
+  --color-bg: var(--neutral-100);
+  --color-surface: var(--neutral-0);
+  --color-surface-alt: var(--neutral-50);
+
+  --color-text-primary: var(--neutral-900);
+  --color-text-secondary: var(--neutral-600);
+  --color-text-muted: var(--neutral-400);
+  --color-border: var(--neutral-200);
+
+  --color-accent: var(--terracotta-600);
+  --color-accent-hover: var(--terracotta-700);
+
+  /* Typography */
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", "Courier New", monospace;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Shadow */
+  --shadow-card: 0 20px 40px -12px rgba(33, 27, 22, 0.15);
+  --shadow-card-lift: 0 30px 60px -15px rgba(33, 27, 22, 0.25);
+
+  /* Layout */
+  --sidebar-width: 280px;
+  --content-max-width: 1400px;
+}
+
+/* ============================
+   BASE TYPOGRAPHY
+   ============================ */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+em {
+  font-style: italic;
+  color: var(--color-accent-hover);
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+/* ============================
+   PAGE LAYOUT
+   ============================ */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  body {
+    flex-direction: row;
+  }
+}
+
+/* ============================
+   SIDEBAR
+   ============================ */
+.sidebar {
+  background-color: var(--color-surface);
+  padding: 1.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    min-height: 100vh;
+    padding: 2.5rem 2rem;
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.sidebar__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo__icon {
+  width: 28px;
+  height: 28px;
+}
+
+.logo__text {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.logo__text em {
+  color: var(--color-accent);
+  font-style: italic;
+}
+
+/* Hamburger toggle — mobile only */
+.nav-toggle {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-toggle__close {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__open {
+  display: none;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__close {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
+/* Nav list — collapsible on mobile, always visible on desktop.
+   JS toggles the "nav-open" class on .sidebar */
+.nav {
+  display: none;
+}
+
+.sidebar.nav-open .nav {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: block;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.nav__item a img {
+  width: 18px;
+  height: 18px;
+}
+
+.nav__item a:hover,
+.nav__item a:focus-visible {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+.nav__item--active a {
+  background-color: var(--neutral-900);
+  color: var(--color-surface);
+}
+
+.nav__item--active a img {
+  filter: brightness(0) invert(1);
+}
+
+.badge {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background-color: var(--terracotta-500);
+  color: var(--color-surface);
+  font-size: 0.7rem;
+  font-weight: 600;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Weather widget */
+.weather-card {
+  background: linear-gradient(160deg, var(--sun-300), var(--sun-500));
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.weather-card__icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 70px;
+  height: 70px;
+  opacity: 0.6;
+}
+
+.weather-card__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--neutral-800);
+  position: relative;
+}
+
+.weather-card__temp {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  color: var(--neutral-900);
+  margin: 0.25rem 0;
+  position: relative;
+}
+
+.weather-card__desc {
+  font-size: 0.8rem;
+  color: var(--neutral-800);
+  position: relative;
+}
+
+/* Sidebar footer */
+.sidebar__footer {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar__footer {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+}
+
+/* ============================
+   MAIN CONTENT
+   ============================ */
+.main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: var(--content-max-width);
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding: 3rem 4rem;
+  }
+}
+
+/* Header */
+.page-header {
+  margin-bottom: 2.5rem;
+}
+
+.page-header__eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.page-header__row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .page-header__row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.page-header__title {
+  font-size: 2rem;
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 1024px) {
+  .page-header__title {
+    font-size: 2.75rem;
+  }
+}
+
+.page-header__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.btn--solid {
+  background-color: var(--neutral-900);
+  color: var(--color-surface);
+}
+
+/* ============================
+   CARD STACK (receipt + welcome card, overlapping)
+   ============================ */
+.card-stack {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 3rem;
+}
+
+@media (min-width: 768px) {
+  .card-stack {
+    min-height: 520px;
+    padding: 2rem 0 4rem;
+  }
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+
+.card__eyebrow {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+/* Mobile: cards stack normally in flow */
+.card-stack {
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card--receipt {
+  background-color: var(--color-surface);
+  width: 100%;
+  max-width: 380px;
+  font-family: var(--font-mono);
+}
+
+.card--welcome {
+  background-color: var(--terracotta-600);
+  color: var(--color-surface);
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Desktop: absolute-positioned overlapping stack with fan-on-hover */
+@media (min-width: 768px) {
+  .card-stack {
+    display: block;
+    height: 480px;
+  }
+
+  .card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+  }
+
+  .card--receipt {
+    transform: translateX(-62%) rotate(-4deg);
+    z-index: 1;
+  }
+
+  .card--welcome {
+    transform: translateX(-38%) rotate(3deg);
+    z-index: 2;
+  }
+
+  .card-stack:hover .card--receipt {
+    transform: translateX(-85%) rotate(-8deg) translateY(-6px);
+    box-shadow: var(--shadow-card-lift);
+  }
+
+  .card-stack:hover .card--welcome {
+    transform: translateX(-15%) rotate(7deg) translateY(-6px);
+    box-shadow: var(--shadow-card-lift);
+  }
+
+  .card-stack__hint {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.card-stack__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.card-stack__hint img {
+  width: 10px;
+  height: 10px;
+}
+
+/* Receipt card internals */
+.card--receipt__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.card--receipt__number {
+  text-align: right;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+.card--receipt__title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-text-primary);
+}
+
+.card--receipt__dates {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.card--receipt__dates .label {
+  font-size: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.card--receipt__dates .date {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-text-primary);
+}
+
+.card--receipt__dates .sublabel {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.2rem;
+}
+
+.card--receipt__lineitems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card--receipt__lineitems li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.card--receipt__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.card--receipt__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card--receipt__paid {
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+.card--receipt__barcode {
+  width: 130px;
+  height: 32px;
+}
+
+/* Welcome card internals */
+.card--welcome {
+  position: relative;
+  overflow: hidden;
+}
+
+.card--welcome__sun {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
+}
+
+.card--welcome__from {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 1.5rem;
+}
+
+.card--welcome__name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card--welcome__note {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  margin-bottom: 2rem;
+}
+
+.card--welcome__room {
+  margin-top: auto;
+}
+
+.card--welcome__room .label {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.65rem;
+}
+
+.card--welcome__room .value {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+}
+
+/* ============================
+   INFO CARDS
+   ============================ */
+.info-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .info-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.info-card__head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.info-card__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-card__icon img {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.info-card__icon--arrival {
+  background-color: var(--terracotta-600);
+}
+
+.info-card__icon--wifi {
+  background-color: var(--blue-500);
+}
+
+.info-card__icon--breakfast {
+  background-color: var(--rose-500);
+}
+
+.info-card__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.info-card__number {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.info-card__title {
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.info-card__sub {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.9rem;
+}
+
+.info-card__text {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Wifi key-value list */
+.info-card__kv {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.info-card__kv > div {
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+}
+
+.info-card__kv dt {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.15rem;
+}
+
+.info-card__kv dd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+}
+
+.copy-btn {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
+}
+
+.copy-btn:hover {
+  background-color: var(--neutral-200);
+}
+
+.copy-btn.copied {
+  color: var(--color-text-secondary);
+}
+
+/* ============================
+   FOCUS STATES (accessibility)
+   ============================ */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

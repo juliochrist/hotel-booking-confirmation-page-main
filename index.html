@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maison Soleil | Booking Confirmation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar__top">
+        <a href="#" class="logo">
+          <img src="assets/images/logo.svg" alt="" class="logo__icon" />
+          <span class="logo__text"><em>Maison</em><br />Soleil</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <img
+            src="assets/images/icon-menu.svg"
+            alt=""
+            class="nav-toggle__open"
+          />
+          <img
+            src="assets/images/icon-close.svg"
+            alt=""
+            class="nav-toggle__close"
+          />
+        </button>
+      </div>
+
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item nav__item--active">
+            <a href="#"
+              ><img src="assets/images/icon-bed.svg" alt="" /> Your stay</a
+            >
+            <span class="badge">1</span>
+          </li>
+          <li class="nav__item">
+            <a href="#"
+              ><img src="assets/images/icon-house.svg" alt="" /> The house</a
+            >
+          </li>
+          <li class="nav__item">
+            <a href="#"
+              ><img src="assets/images/icon-pin.svg" alt="" /> Around town</a
+            >
+          </li>
+          <li class="nav__item">
+            <a href="#"
+              ><img src="assets/images/icon-breakfast-outline.svg" alt="" />
+              Breakfast</a
+            >
+          </li>
+          <li class="nav__item">
+            <a href="#"
+              ><img src="assets/images/icon-mail.svg" alt="" /> Messages</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div class="weather-card">
+        <img
+          src="assets/images/icon-weather.svg"
+          alt=""
+          class="weather-card__icon"
+        />
+        <p class="weather-card__label">Today in Cassis</p>
+        <p class="weather-card__temp">27°</p>
+        <p class="weather-card__desc">Sunny · light breeze</p>
+      </div>
+
+      <div class="sidebar__footer">
+        <p>EST. 1987</p>
+        <p>Maison Soleil · 12 Rue des Oliviers · Cassis</p>
+        <p>© 2026 Maison Soleil</p>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <header class="page-header">
+        <p class="page-header__eyebrow">Booking · Confirmed</p>
+        <div class="page-header__row">
+          <h1 class="page-header__title">Bienvenue, <em>Lucia.</em></h1>
+          <div class="page-header__actions">
+            <button class="btn btn--outline" id="print-btn">
+              Print receipt
+            </button>
+            <button class="btn btn--solid" id="calendar-btn">
+              Add to calendar
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- CARD STACK -->
+      <section
+        class="card-stack"
+        aria-label="Booking receipt and host welcome note"
+      >
+        <article class="card card--receipt">
+          <div class="card--receipt__top">
+            <p class="card__eyebrow">Receipt</p>
+            <p class="card--receipt__number">№ MS-2026<br />0421-AH</p>
+          </div>
+          <h2 class="card--receipt__title">Your stay</h2>
+
+          <div class="card--receipt__dates">
+            <div>
+              <p class="label">Check in</p>
+              <p class="date">25 Apr</p>
+              <p class="sublabel">Saturday · 15:00</p>
+            </div>
+            <div>
+              <p class="label">Check out</p>
+              <p class="date">29 Apr</p>
+              <p class="sublabel">Wednesday · 11:00</p>
+            </div>
+          </div>
+
+          <ul class="card--receipt__lineitems">
+            <li>
+              <span>Room · La Garrigue × 4 nights</span><span>€ 620.00</span>
+            </li>
+            <li><span>Breakfast × 2 guests</span><span>€ 96.00</span></li>
+            <li><span>Tourist tax</span><span>€ 14.40</span></li>
+          </ul>
+
+          <div class="card--receipt__total">
+            <span>Total paid</span>
+            <span>€ 730.40</span>
+          </div>
+
+          <div class="card--receipt__footer">
+            <p class="card--receipt__paid">Paid · Wise · GBP</p>
+            <img
+              src="assets/images/icon-barcode.svg"
+              alt=""
+              class="card--receipt__barcode"
+            />
+          </div>
+        </article>
+
+        <article class="card card--welcome">
+          <p class="card__eyebrow">Welcome card</p>
+          <img
+            src="assets/images/icon-sun.svg"
+            alt=""
+            class="card--welcome__sun"
+          />
+          <p class="card--welcome__from">A note from your host,</p>
+          <h2 class="card--welcome__name">Margaux.</h2>
+          <p class="card--welcome__note">
+            We're so glad you're coming. The shutters will be open, the lemonade
+            cold, and the cat – Poivre – pretending not to notice you.
+          </p>
+          <div class="card--welcome__room">
+            <p class="label">Room</p>
+            <p class="value">La Garrigue</p>
+          </div>
+        </article>
+
+        <p class="card-stack__hint">
+          <img src="assets/images/icon-sparkle.svg" alt="" /> Hover to fan
+          <img src="assets/images/icon-sparkle.svg" alt="" />
+        </p>
+      </section>
+
+      <!-- INFO CARDS -->
+      <section class="info-cards" aria-label="Stay details">
+        <article class="info-card">
+          <div class="info-card__head">
+            <span class="info-card__icon info-card__icon--arrival">
+              <img src="assets/images/icon-key.svg" alt="" />
+            </span>
+            <span class="info-card__label">Arrival</span>
+            <span class="info-card__number">01</span>
+          </div>
+          <h3 class="info-card__title">Check-in from 15:00</h3>
+          <p class="info-card__sub">Sat, 25 April</p>
+          <p class="info-card__text">
+            Ring the brass bell by the blue door. If we're at the market, the
+            key is in the terracotta pot by the olive tree.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <div class="info-card__head">
+            <span class="info-card__icon info-card__icon--wifi">
+              <img src="assets/images/icon-wifi.svg" alt="" />
+            </span>
+            <span class="info-card__label">Wifi</span>
+            <span class="info-card__number">02</span>
+          </div>
+          <h3 class="info-card__title">Le Soleil · Guest</h3>
+          <p class="info-card__sub">Password below</p>
+
+          <dl class="info-card__kv">
+            <div>
+              <dt>Network</dt>
+              <dd>Le Soleil · Guest</dd>
+            </div>
+            <div>
+              <dt>Password</dt>
+              <dd>
+                soleil-2026
+                <button
+                  class="copy-btn"
+                  id="copy-wifi"
+                  data-value="soleil-2026"
+                >
+                  Copy
+                </button>
+              </dd>
+            </div>
+          </dl>
+        </article>
+
+        <article class="info-card">
+          <div class="info-card__head">
+            <span class="info-card__icon info-card__icon--breakfast">
+              <img src="assets/images/icon-breakfast.svg" alt="" />
+            </span>
+            <span class="info-card__label">Breakfast</span>
+            <span class="info-card__number">03</span>
+          </div>
+          <h3 class="info-card__title">Served 8 – 10:30</h3>
+          <p class="info-card__sub">On the terrace</p>
+          <p class="info-card__text">
+            Fresh figs, Marseille honey, pain au levain, and espresso.
+            Gluten-free option? Leave a note the night before.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
